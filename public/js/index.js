@@ -8,10 +8,23 @@ socket.on('disconnect', function()  {
    console.log('disonnected from server');
 })
 
+function getDiss() {
+
+    let diss = [':0)'];
+
+    return diss[Math.floor((Math.random() * diss.length))]
+
+}
+
 socket.on('newMessage', function (message) {
 
     var li = jQuery('<li></li>');
-    li.text(`${message.from}: ${message.text}`);
+
+    if(message.from !== 'Admin') {
+        li.text(`${message.from}: ${message.text} ${getDiss()}`);
+    } else {
+        li.text(`${message.from}: ${message.text}`);
+    }
 
     jQuery('#messages').append(li);
 
