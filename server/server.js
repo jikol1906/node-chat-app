@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
 
         console.log(message);
 
-        callback('This is from the server');
+        callback();
 
 
     })
