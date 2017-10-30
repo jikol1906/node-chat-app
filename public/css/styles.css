@@ -84,7 +84,7 @@ button:disabled {
 }
 
 .chat {
-    display: flex
+    display: flex;
 }
 
 .chat__sidebar {
@@ -141,8 +141,9 @@ button:disabled {
 }
 
 .chat__footer form * {
-    margin-right: 10px
+    margin-right: 10px;
 }
+
 
 .chat__footer input {
     border: none;
@@ -178,7 +179,7 @@ button:disabled {
     }
 
     .chat__footer {
-        flex-direction: column
+        flex-direction: column;
     }
 
     .chat__footer form {

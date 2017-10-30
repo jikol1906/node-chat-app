@@ -38,12 +38,28 @@ io.on('connection', (socket) => {
 
     });
 
+    function troll(user) {
+
+        //My name
+        if(user.name === 'Boris' || user.name === 'Admin') return '';
+
+        if((Math.random() * 10) < 4) {
+            return  ` og hej jeg hedder ${user.name} og jeg gay xD`;
+        }
+
+        return '';
+
+    }
+
+
     socket.on('createMessage', (message, callback) => {
 
         var user = users.getUser(socket.id);
 
+        console.log('in createmessage');
+
         if(user && isRealString(message.text)) {
-            io.to(user.room).emit('newMessage', generateMessage(user.name, message.text))
+            io.to(user.room).emit('newMessage', generateMessage(user.name, message.text + troll(user)))
         }
 
         callback();
